@@ -1,0 +1,11 @@
+/apps/web/node_modules
+/apps/web/dist
+/apps/server/target
+/.cargo
+/data
+*.sqlite
+*.sqlite-journal
+*.db
+*.log
+.env
+.DS_Store
