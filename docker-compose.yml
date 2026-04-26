@@ -1,0 +1,19 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      BIND_ADDR: 0.0.0.0:8080
+      DATABASE_URL: sqlite:/data/app.sqlite
+      STORAGE_ROOT: /data/objects
+      PUBLIC_BASE_URL: http://localhost:8080
+      COOKIE_SECURE: "false"
+      MAX_UPLOAD_BYTES: "104857600"
+      SESSION_SECRET: ${SESSION_SECRET}
+      BOOTSTRAP_ADMIN_EMAIL: ${BOOTSTRAP_ADMIN_EMAIL}
+      BOOTSTRAP_ADMIN_PASSWORD: ${BOOTSTRAP_ADMIN_PASSWORD}
+    volumes:
+      - ./data:/data
